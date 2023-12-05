@@ -39,7 +39,7 @@ RSpec.describe Pigeon, type: :model do
       enjoys: 'long flights on the beach' 
     )
        
-    expect(cat.errors[:image]).to_not be_empty
+    expect(pigeon.errors[:image]).to_not be_empty
   end
 end
 
