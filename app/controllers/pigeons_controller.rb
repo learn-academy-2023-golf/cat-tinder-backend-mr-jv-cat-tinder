@@ -16,7 +16,11 @@ class PigeonsController < ApplicationController
     def update
         pigeon = Pigeon.find(params[:id])
         pigeon.update(pigeon_params)
-        render json: pigeon
+        if pigeon.update(pigeon_params)
+            render json: pigeon
+        else
+            render json: pigeon.errors, status: 422
+        end
     end
 
     def destroy
