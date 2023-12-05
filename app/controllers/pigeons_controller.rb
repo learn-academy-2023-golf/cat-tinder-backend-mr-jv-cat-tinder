@@ -6,7 +6,11 @@ class PigeonsController < ApplicationController
 
     def create
         pigeon = Pigeon.create(pigeon_params)
-        render json: pigeon
+        if pigeon.valid?
+            render json: pigeon
+        else
+            render json: pigeon.errors, status: 422
+        end
     end
 
     def update
